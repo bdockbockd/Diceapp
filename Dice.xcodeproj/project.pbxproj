@@ -59,10 +59,10 @@
 				BC109794214262700094D143 /* Asset.xcassets */,
 				BC322F56214103980026A8CD /* AppDelegate.swift */,
 				BC322F58214103980026A8CD /* ViewController.swift */,
+				BC10974A21421C340094D143 /* SecondViewController.swift */,
 				BC322F5A214103980026A8CD /* Main.storyboard */,
 				BC322F5F2141039B0026A8CD /* LaunchScreen.storyboard */,
 				BC322F622141039B0026A8CD /* Info.plist */,
-				BC10974A21421C340094D143 /* SecondViewController.swift */,
 			);
 			path = Dice;
 			sourceTree = "<group>";

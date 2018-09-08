@@ -10,16 +10,19 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
+    let nameBNK: [String] = ["can","cherprang","izurina","jaa","jane","jennis","jib","kaew","kaimook","kafe","korn","maysa","mind","mobile","music","namnueng","namsai","nink","orn","piam","pun","Pupe","satchan","tarwaan"]
+    
     @IBOutlet weak var gender: UITextField!
     @IBOutlet weak var bnkName: UITextField!
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var BNKPicture: UIImageView!
     @IBOutlet weak var resultChance: UILabel!
     @IBAction func findBNK(_ sender: UIButton) {
-        if (bnkName.text == "" || gender.text == "" || age.text == "")
+        if (bnkName.text! == "" || gender.text! == "" || age.text == "" || !nameBNK.contains((bnkName.text!.lowercased())))
         {
             resultChance.text = "Pls input Correctly"
         } else {
+            BNKPicture.image = UIImage(named: bnkName.text!.lowercased())
             let chance = Int(arc4random_uniform(UInt32(100)))
             resultChance.text = bnkName.text! + " " + String(chance) + "%"
         }
