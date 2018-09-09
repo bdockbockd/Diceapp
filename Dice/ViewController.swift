@@ -10,37 +10,48 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // it is array type
     let diceArrayNumber: [String] = ["dice1","dice2","dice3","dice4","dice5","dice6"]
     
-    @IBOutlet weak var textShow: UILabel!
+    // Link Roll button, textShow, diceImage, and anything you need
+
     
-    @IBOutlet weak var diceImage: UIImageView!
     
-    @IBOutlet weak var switchButton: UIButton!
     
-    @IBOutlet weak var switchSwitch: UISwitch!
     
-    @IBAction func isPressed(_ sender: Any) {
-        updateImage()
-        textShow.text = "I got pressed"
-    }
+    // Link Roll button function IBAction
+ 
     
-    @IBAction func goToMySecret(_ sender: Any) {
-        performSegue(withIdentifier: "goPokemon", sender: self)
-    }
     
-    @IBAction func clickSwitch(_ sender: Any) {
-        if switchSwitch.isOn {
-            switchButton.isHidden = false;
-        }else{
-            switchButton.isHidden = true;
-        }
-    }
+    
+    // do this afte you've done dice Random
+    // create button to link SecondViewController
+    // create new viewController from object library
+    // add new Cocoa Touch File to be SecondViewController file
+    // link viewcontroller design to viewController file in utilities area
+    // create button link to second view (IBAction) by dragging to SecondViewController design
+    // it will occur Segue >> do set the segue identifier of Segue
+    // performSegue >> show the second view
+    // let set segue identifier to be the name you set
+    
+    
+    
+    
+    
+    
+//    @IBAction func clickSwitch(_ sender: Any) {
+//        if switchSwitch.isOn {
+//            switchButton.isHidden = false;
+//        }else{
+//            switchButton.isHidden = true;
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        diceImage.image = #imageLiteral(resourceName: "diceeLogo")
+        
+        // set up the logo image as the fist image of Dice
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,13 +59,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateImage() {
-        diceImage.image = UIImage(named: diceArrayNumber.getRandomElement() ?? diceArrayNumber[0])
-    }
+    // creating function to random dice
+    // use getRandomElement()
+    
+    
 
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        updateImage()
-    }
+    
+    // do randomisation when motionEnded >> guide func montionEnded
+
+    
 }
 
 extension Array {
