@@ -12,7 +12,6 @@ class SecondViewController: UIViewController,UITextFieldDelegate {
     
     let nameBNK: [String] = ["can","cherprang","izurina","jaa","jane","jennis","jib","kaew","kaimook","kafe","korn","maysa","mind","mobile","music","namnueng","namsai","nink","orn","piam","pun","Pupe","satchan","tarwaan"]
     
-    
     // link all design to code
 
     
