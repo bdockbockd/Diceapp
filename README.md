@@ -25,16 +25,6 @@ Starter for Swift Language
 * Function 
 * Go to this website >> [Swift Basis](http://blog.teamtreehouse.com/an-absolute-beginners-guide-to-swift) 
 
-
-
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
 ## Section in Xcode
    * Navigation Pane
      * AppDelegate
