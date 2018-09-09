@@ -8,17 +8,19 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController,UITextFieldDelegate {
     
     let nameBNK: [String] = ["can","cherprang","izurina","jaa","jane","jennis","jib","kaew","kaimook","kafe","korn","maysa","mind","mobile","music","namnueng","namsai","nink","orn","piam","pun","Pupe","satchan","tarwaan"]
     
-    @IBOutlet weak var gender: UITextField!
+    @IBOutlet weak var yourName: UITextField!
+    @IBOutlet weak var yourGender: UITextField!
     @IBOutlet weak var bnkName: UITextField!
-    @IBOutlet weak var age: UITextField!
+    @IBOutlet weak var yourSurname: UITextField!
+    @IBOutlet weak var yourAge: UITextField!
     @IBOutlet weak var BNKPicture: UIImageView!
     @IBOutlet weak var resultChance: UILabel!
     @IBAction func findBNK(_ sender: UIButton) {
-        if (bnkName.text! == "" || gender.text! == "" || age.text == "" || !nameBNK.contains((bnkName.text!.lowercased())))
+        if (bnkName.text! == "" || yourGender.text! == "" || yourAge.text == "" || !nameBNK.contains((bnkName.text!.lowercased())))
         {
             resultChance.text = "Pls input Correctly"
         } else {
@@ -28,9 +30,11 @@ class SecondViewController: UIViewController {
         }
     }
     @IBAction func clearData(_ sender: UIButton) {
-        gender.text = ""
+        yourGender.text = ""
         bnkName.text = ""
-        age.text = ""
+        yourAge.text = ""
+        yourName.text = ""
+        yourSurname.text = ""
         resultChance.text = "TRY AGAIN"
     }
     @IBAction func goBack(_ sender: Any) {
@@ -41,9 +45,11 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         // assign delegate for each one of the textField
-        gender.delegate = self as? UITextFieldDelegate
-        bnkName.delegate = self as? UITextFieldDelegate
-        age.delegate = self as? UITextFieldDelegate
+        yourGender.delegate = self
+        bnkName.delegate = self
+        yourAge.delegate = self
+        yourName.delegate = self
+        yourSurname.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,14 +58,41 @@ class SecondViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        age.resignFirstResponder()
+        yourAge.resignFirstResponder()
+        yourGender.resignFirstResponder()
+        yourName.resignFirstResponder()
+        yourSurname.resignFirstResponder()
+        bnkName.resignFirstResponder()
     }
+    
+    
     
     func getRandomElement() -> Int {
         let index = Int(arc4random_uniform(UInt32(100)))
         return index+1
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("Allow Editing")
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("User is editing")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("editing is done")
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        print("editor was pressed")
+        return true
+    }
     
     
     /*
@@ -74,6 +107,7 @@ class SecondViewController: UIViewController {
 
 }
 
+// addUITextFieldDelegate to do conforms the protocol
 extension ViewController: UITextFieldDelegate {
     // when use use ASCII keyboard >> it has return key so we need to cancel or dismiss it
     // when you touch textField >> it becomes the firt responder

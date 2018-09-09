@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let diceArrayNumber: [Int] = [1,2,3,4,5,6]
+    let diceArrayNumber: [String] = ["dice1","dice2","dice3","dice4","dice5","dice6"]
     
     @IBOutlet weak var textShow: UILabel!
     
@@ -21,9 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var switchSwitch: UISwitch!
     
     @IBAction func isPressed(_ sender: Any) {
-        let randomNum = diceArrayNumber.getRandomElement()
-        print(randomNum)
-        diceImage.image = UIImage(named: "dice"+String(randomNum))
+        updateImage()
         textShow.text = "I got pressed"
     }
     
@@ -32,33 +30,37 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clickSwitch(_ sender: Any) {
-        if switchSwitch.isOn{
+        if switchSwitch.isOn {
             switchButton.isHidden = false;
         }else{
             switchButton.isHidden = true;
         }
-        
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        diceImage.image = #imageLiteral(resourceName: "dice1.png")
+        diceImage.image = #imageLiteral(resourceName: "diceeLogo")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updateImage() {
+        diceImage.image = UIImage(named: diceArrayNumber.getRandomElement() ?? diceArrayNumber[0])
+    }
 
-
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        updateImage()
+    }
 }
 
 extension Array {
-    func getRandomElement() -> Int {
+    func getRandomElement() -> Element? {
         let index = Int(arc4random_uniform(UInt32(self.count)))
-        return index+1
+        return self[index]
     }
 }
 
