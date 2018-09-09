@@ -121,3 +121,8 @@ func createRandomNumber(number: Int) -> Int? {
 
 ## Development
 Xcode 10 version beta now >> [Link download](https://developer.apple.com/xcode/) 
+
+## Other Work Shop
+[Hack IOS 1](https://github.com/sunboyy/thinc-5th-hack-ios-tutorial-1)
+[Hack IOS 2](https://github.com/sunboyy/thinc-5th-hack-ios-tutorial-2)
+[Skeletion PRoject](https://github.com/beesk135/Skeleton-Project)
