@@ -12,8 +12,6 @@ BNK destiny App >> It predicts which BNK you gonna check hand with?
 * macOS 
 High Sierra 10.13
 
-`$ pip install foobar`
-
 ## Language needed >> Swift 4
 Swift is a new programming language for
 iOS, macOS, watchOS, and tvOS app development
